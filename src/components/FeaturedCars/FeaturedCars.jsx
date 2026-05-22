@@ -41,26 +41,28 @@ export default function FeaturedCars({
             <h2 className="featured__title">{resolvedTitle}</h2>
             <p className="featured__subtitle">{subtitle}</p>
           </div>
+        </div>
+        <div className="filters-row">
+          <div className="featured__filters">
+            {FILTERS.map((f) => (
+              <button
+                key={f}
+                className={`filter-btn ${activeFilter === f ? "active" : ""}`}
+                onClick={() => setActiveFilter(f)}
+              >
+                {f}
+              </button>
+            ))}
+          </div>
           {showHeaderLink && (
             <Link to="/catalogo" className="featured__link">
               Ver todos los coches
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
+                <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </Link>
           )}
-        </div>
 
-        <div className="featured__filters">
-          {FILTERS.map((f) => (
-            <button
-              key={f}
-              className={`filter-btn ${activeFilter === f ? "active" : ""}`}
-              onClick={() => setActiveFilter(f)}
-            >
-              {f}
-            </button>
-          ))}
         </div>
 
         <div className="featured__grid">
