@@ -3,13 +3,13 @@ import FeaturedCars from "../components/FeaturedCars/FeaturedCars";
 import Footer from "../components/Footer/Footer";
 
 export default function CatalogPage() {
-  console.log('catalogo')
   return (
     <>
       <Navbar />
       <FeaturedCars
         sectionId="catalogo"
         showHeaderLink={false}
+        featuredOnly={false}
         title={
           <>
             NUESTRO <span className="featured__title-accent">CATALOGO</span>

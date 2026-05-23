@@ -1,6 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import CatalogPage from "./pages/CatalogPage";
+import AdminPage from "./pages/AdminPage";
+import AdminLoginPage from "./pages/AdminLoginPage";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import "./App.css";
 
 export default function App() {
@@ -9,6 +12,15 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/catalogo" element={<CatalogPage />} />
+        <Route path="/admin/login" element={<AdminLoginPage />} />
+        <Route
+          path="/admin"
+          element={(
+            <PrivateRoute>
+              <AdminPage />
+            </PrivateRoute>
+          )}
+        />
       </Routes>
     </div>
   );

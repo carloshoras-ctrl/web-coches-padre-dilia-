@@ -1,25 +1,21 @@
-// src/firebase/config.js
-// Rellena con tus credenciales de Firebase Console
-// (Configuración del proyecto > Tus apps > SDK de Firebase)
-
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { getStorage } from "firebase/storage";
 import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "TU_API_KEY",
-  authDomain: "TU_PROYECTO.firebaseapp.com",
-  projectId: "TU_PROYECTO",
-  storageBucket: "TU_PROYECTO.appspot.com",
-  messagingSenderId: "TU_SENDER_ID",
-  appId: "TU_APP_ID",
+  apiKey: "AIzaSyA2D80fUgaP2R-3OKhO0N4C3E1KfmxYQno",
+  authDomain: "chelombus-7aa48.firebaseapp.com",
+  databaseURL: "https://chelombus-7aa48-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "chelombus-7aa48",
+  storageBucket: "chelombus-7aa48.firebasestorage.app",
+  messagingSenderId: "55600125583",
+  appId: "1:55600125583:web:a785f59d73de5ea6f082fa",
+  measurementId: "G-K6G24738WP",
 };
 
 const app = initializeApp(firebaseConfig);
 
-export const db = getFirestore(app);       // Firestore (base de datos)
-export const storage = getStorage(app);    // Storage (imágenes de coches)
-export const auth = getAuth(app);          // Auth (panel de admin futuro)
+export const db = getFirestore(app);
+export const auth = getAuth(app);
 
 export default app;

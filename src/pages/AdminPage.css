@@ -1,0 +1,290 @@
+.admin-page {
+  background: var(--gray-light);
+  min-height: calc(100vh - 68px);
+  padding: 40px 100px;
+}
+
+.admin-shell {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.admin-shell__header h1 {
+  font-size: 30px;
+  line-height: 1.1;
+  letter-spacing: 0.4px;
+  color: var(--text);
+}
+
+.admin-shell__header h1 span {
+  color: var(--orange);
+}
+
+.admin-shell__header p {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.admin-dashboard {
+  margin-top: 26px;
+}
+
+.admin-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.admin-login {
+  max-width: 520px;
+  margin-top: 26px;
+  padding: 24px;
+}
+
+.admin-login h2,
+.admin-form-card h2,
+.admin-list-card h2 {
+  font-size: 22px;
+  color: var(--text);
+}
+
+.admin-login p {
+  margin-top: 6px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.admin-session {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.admin-session__label {
+  font-size: 11px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 800;
+}
+
+.admin-session__mail {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 3px;
+}
+
+.admin-layout {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(420px, 1.2fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.admin-form-card,
+.admin-list-card {
+  padding: 20px;
+}
+
+.admin-form {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.admin-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.admin-form input,
+.admin-form select {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--white);
+}
+
+.admin-form input:focus,
+.admin-form select:focus {
+  outline: 2px solid rgba(244, 125, 32, 0.2);
+  border-color: var(--orange);
+}
+
+.admin-checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.admin-checkbox input {
+  width: auto;
+}
+
+.admin-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.admin-btn {
+  border: 1px solid var(--orange);
+  background: var(--orange);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 13px;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.admin-btn:hover {
+  background: var(--orange-dark);
+  border-color: var(--orange-dark);
+}
+
+.admin-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.admin-btn--ghost {
+  background: var(--white);
+  color: var(--orange);
+}
+
+.admin-btn--ghost:hover {
+  background: var(--orange-light);
+  border-color: var(--orange);
+}
+
+.admin-btn--danger {
+  background: #b91c1c;
+  border-color: #b91c1c;
+}
+
+.admin-btn--danger:hover {
+  background: #991b1b;
+  border-color: #991b1b;
+}
+
+.admin-feedback {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.admin-feedback--error {
+  color: #b91c1c;
+}
+
+.admin-feedback--ok {
+  color: #166534;
+}
+
+.admin-cars-list {
+  list-style: none;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-cars-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 130px 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.admin-cars-item__img {
+  width: 130px;
+  height: 84px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: var(--gray-light);
+}
+
+.admin-cars-item__info h3 {
+  font-size: 16px;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.admin-cars-item__info h3 span {
+  font-weight: 500;
+}
+
+.admin-cars-item__info p {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.admin-cars-item__info strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--orange);
+  font-size: 17px;
+}
+
+.admin-cars-item__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+@media (max-width: 1200px) {
+  .admin-page {
+    padding: 30px 24px;
+  }
+
+  .admin-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .admin-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-cars-item {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-cars-item__img {
+    width: 100%;
+    height: 170px;
+  }
+
+  .admin-cars-item__actions {
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}
