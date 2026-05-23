@@ -96,6 +96,7 @@ Cosas que faltanç
 -Añadir ruta protegida
 -Sticky whatsapp
 -Añadir el Logo
+-Pasar a Next.js
 -Mirar tema responsive
 -Cambiar contenido/descripciones... poner algo más legit
 -Pagina de Contacto

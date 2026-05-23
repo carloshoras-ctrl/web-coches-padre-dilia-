@@ -55,9 +55,42 @@
 @media (max-width: 600px) {
   .hero {
     min-height: 480px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-position: center;
+  }
+
+  .hero__content {
+    width: min(100%, 320px);
+    padding-top: 44px;
+    padding-bottom: 44px;
   }
 
   .hero__title {
-    font-size: 42px;
+    font-size: 2.5rem;
   }
+
+  .hero__subtitle {
+    font-size: 15px;
+    margin-bottom: 28px;
+  }
+
+  .hero__btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 760px) {
+
+
+  .hero__title {
+    margin-bottom: 18px;
+  }
+
+  .hero__subtitle {
+    margin-bottom: 42px;
+  }
+
 }

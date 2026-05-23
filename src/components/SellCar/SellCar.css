@@ -44,8 +44,17 @@
 }
 
 @media (max-width: 600px) {
+  .sellcar {
+    padding: 32px 20px;
+  }
+
   .sellcar__inner {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .sellcar__btn {
+    width: 100%;
+    justify-content: center;
   }
 }
