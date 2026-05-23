@@ -8,7 +8,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
-  
+
 }
 
 .feature-card {
@@ -41,12 +41,22 @@
   font-size: 13px;
   color: var(--text-muted);
   line-height: 1.65;
+  text-align: center;
 }
 
 @media (max-width: 900px) {
-  .features__grid { grid-template-columns: repeat(2, 1fr); }
+  .features__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 540px) {
-  .features__grid { grid-template-columns: 1fr; gap: 24px; }
+  .features {
+    padding: 28px 20px;
+  }
+
+  .features__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 }

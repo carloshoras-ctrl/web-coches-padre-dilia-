@@ -1,11 +1,9 @@
-﻿.whyus {
+.whyus {
   position: relative;
-  padding: 72px 0;
+  padding: 32px 0;
   overflow: hidden;
-  background:
-    linear-gradient(180deg, rgba(8, 8, 8, 0.44) 0%, rgba(8, 8, 8, 0) 100%), url("../../assets/whyus-image.png") center/cover no-repeat
+  background: linear-gradient(180deg, rgba(8, 8, 8, 0.44) 0%, rgba(8, 8, 8, 0) 100%), url("../../assets/whyus-image.png") center/cover no-repeat;
 }
-
 
 .whyus__inner {
   position: relative;
@@ -43,15 +41,16 @@
 
 .whyus__cards {
   display: grid;
-  grid-auto-flow: column;
-  grid-template-rows: repeat(2, 50%);
-  gap: 18px;
-  grid-template-columns: repeat(auto-fill, minmax(18vw,26vw));
+  grid-template-rows: repeat(2, 1fr);
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  row-gap: 17px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   justify-content: center;
 }
 
 .whyus__card {
-  background: rgba(10, 10, 10, 0.5);
+  background: rgba(10, 10, 10, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 18px;
   padding: 22px;
@@ -88,7 +87,7 @@
 
 .whyus__name {
   color: var(--white);
-  font-size: 1rem; 
+  font-size: 1rem;
   line-height: 1;
   font-weight: 700;
   margin-bottom: 8px;
@@ -147,10 +146,8 @@
 
 .whyus__summary {
   margin-top: 26px;
-  display: flex;
   justify-content: center;
   align-items: center;
-  gap: 14px;
   color: var(--white);
 }
 
@@ -160,80 +157,81 @@
   font-weight: 700;
 }
 
+.whyus__summary {
+  display: flex;
+  flex-direction: column;
+}
+.whyus__summary .star-rating {
+  display: flex;
+  gap: 15px;
+}
+.whyus__summary .star-rating .whyus__summary-value {
+  font-size: 1.5rem;
+}
+
 @media (max-width: 1200px) {
   .whyus__title {
-    font-size: clamp(28px, 3vw, 36px);
+    font-size: 1.5rem;
   }
-
   .whyus__subtitle {
     font-size: 15px;
   }
-
   .whyus__name {
     font-size: 24px;
   }
-
   .whyus__quote {
     font-size: 15px;
   }
-
   .whyus__stat-value {
     font-size: 30px;
   }
-
   .whyus__stat-label {
     font-size: 14px;
   }
-
   .whyus__summary-label,
   .whyus__summary-value {
     font-size: 24px;
   }
 }
-
 @media (max-width: 980px) {
   .whyus__layout {
     grid-template-columns: 1fr;
+    padding: 0 40px;
   }
-
   .whyus__stats {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
-
 @media (max-width: 760px) {
   .whyus {
-    padding: 56px 0;
+    padding: 34px 0;
   }
-
+  .whyus__layout {
+    padding: 0 20px;
+  }
   .whyus__cards {
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
   }
-
   .whyus__person {
     align-items: flex-start;
   }
-
   .whyus__avatar {
     width: 62px;
     height: 62px;
     font-size: 20px;
   }
-
   .whyus__name {
     font-size: 22px;
   }
-
   .whyus__quote {
     font-size: 15px;
   }
-
   .whyus__stats {
     grid-template-columns: 1fr;
   }
-
   .whyus__summary {
     flex-wrap: wrap;
   }
-}
+}/*# sourceMappingURL=styles.css.map */

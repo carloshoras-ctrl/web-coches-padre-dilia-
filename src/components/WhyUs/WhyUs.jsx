@@ -1,4 +1,4 @@
-﻿import "./WhyUs.css";
+﻿import "./styles.css";
 
 const testimonials = [
   {
@@ -105,8 +105,6 @@ function StatIcon({ type }) {
 export default function WhyUs() {
   return (
     <section className="whyus" id="nosotros">
-      <div className="whyus__overlay" />
-
       <div className="container whyus__inner">
         <header className="whyus__header">
           <h2 className="whyus__title">
@@ -143,8 +141,10 @@ export default function WhyUs() {
 
         <div className="whyus__summary">
           <span className="whyus__summary-label">Valoracion media</span>
-          <StarRating rating={5} />
-          <span className="whyus__summary-value">4.9/5</span>
+          <div className="star-rating">
+            <StarRating rating={5} />
+            <span className="whyus__summary-value">4.9/5</span>
+          </div>
         </div>
       </div>
     </section>

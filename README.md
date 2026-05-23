@@ -89,3 +89,23 @@ useEffect(() => {
 - **Firebase 10** (Firestore + Storage + Auth)
 - CSS Modules por componente (sin dependencias de UI externas)
 - Fuente: [Barlow](https://fonts.google.com/specimen/Barlow) (Google Fonts)
+
+
+Cosas que faltanç
+-Arreglar error CORS
+-Añadir ruta protegida
+-Sticky whatsapp
+-Añadir el Logo
+-Pasar a Next.js
+-Mirar tema responsive
+-Cambiar contenido/descripciones... poner algo más legit
+-Pagina de Contacto
+-Pagina de Nosotros
+-En "Publicar coche" la marca deberia ser un dropdown
+-Añadir página individual de cada coche
+-Quitar botón de favorito y "top ventas"
+(-Paginación de reviews)
+-Conectar con bbdd Firebase
+-AWS (despliegue y bbdd)
+-Preguntar a tu padre cuánto paga su amigo por la web
+-Decir a tu padre que pida reseñas de wallapop
