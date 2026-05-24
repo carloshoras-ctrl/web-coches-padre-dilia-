@@ -91,7 +91,7 @@ useEffect(() => {
 - Fuente: [Barlow](https://fonts.google.com/specimen/Barlow) (Google Fonts)
 
 
-Cosas que faltanç
+Cosas que faltan
 -Arreglar error CORS
 -Añadir ruta protegida
 -Sticky whatsapp
@@ -109,3 +109,4 @@ Cosas que faltanç
 -AWS (despliegue y bbdd)
 -Preguntar a tu padre cuánto paga su amigo por la web
 -Decir a tu padre que pida reseñas de wallapop
+-en la pantalla de catalogo hay que añadir esqueleto mientras cargan los coches

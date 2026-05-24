@@ -59,6 +59,16 @@
   flex-wrap: wrap;
 }
 
+.featured__feedback {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.featured__feedback--error {
+  color: #b91c1c;
+}
+
 .title-wrapper {
   margin: 0 auto;
 }

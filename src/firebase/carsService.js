@@ -1,77 +1,119 @@
-// src/firebase/carsService.js
-// Funciones listas para reemplazar los datos de muestra de carsData.js
-
 import {
-  collection,
-  getDocs,
-  getDoc,
-  doc,
-  query,
-  where,
-  orderBy,
-  limit,
   addDoc,
-  updateDoc,
+  collection,
   deleteDoc,
+  doc,
+  getDoc,
+  getDocs,
+  limit,
+  orderBy,
+  query,
   serverTimestamp,
+  updateDoc,
+  where,
 } from "firebase/firestore";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { db, storage } from "./config";
+import { db } from "./config";
 
 const COLLECTION = "coches";
 
-/** Obtener coches destacados (para la sección principal) */
-export async function getFeaturedCars() {
-  const q = query(
-    collection(db, COLLECTION),
-    where("featured", "==", true),
-    orderBy("createdAt", "desc"),
-    limit(8)
-  );
-  const snapshot = await getDocs(q);
-  return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-}
-
-/** Obtener todos los coches con filtros opcionales */
-export async function getCars({ fuel, maxPrice, minYear } = {}) {
+function buildCarsQuery({ fuel, maxPrice, minYear, featuredOnly, pageSize } = {}) {
   let q = query(collection(db, COLLECTION), orderBy("createdAt", "desc"));
+
+  if (featuredOnly) q = query(q, where("featured", "==", true));
   if (fuel) q = query(q, where("fuel", "==", fuel));
   if (maxPrice) q = query(q, where("price", "<=", maxPrice));
   if (minYear) q = query(q, where("year", ">=", minYear));
-  const snapshot = await getDocs(q);
-  return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  if (pageSize) q = query(q, limit(pageSize));
+
+  return q;
 }
 
-/** Obtener un coche por ID */
-export async function getCarById(id) {
-  const docRef = doc(db, COLLECTION, id);
-  const docSnap = await getDoc(docRef);
-  if (!docSnap.exists()) throw new Error("Coche no encontrado");
-  return { id: docSnap.id, ...docSnap.data() };
-}
-
-/** Añadir un nuevo coche (para el panel de admin) */
-export async function addCar(carData, imageFile) {
-  let imageUrl = null;
-  if (imageFile) {
-    const storageRef = ref(storage, `coches/${Date.now()}_${imageFile.name}`);
-    const snapshot = await uploadBytes(storageRef, imageFile);
-    imageUrl = await getDownloadURL(snapshot.ref);
+function normalizeTimestamp(value) {
+  if (!value) return 0;
+  if (typeof value?.toMillis === "function") return value.toMillis();
+  if (typeof value === "string") {
+    const parsed = Date.parse(value);
+    return Number.isNaN(parsed) ? 0 : parsed;
   }
-  return addDoc(collection(db, COLLECTION), {
-    ...carData,
-    imageUrl,
-    createdAt: serverTimestamp(),
+  return 0;
+}
+
+function sortCarsByDateDesc(cars) {
+  return [...cars].sort((a, b) => {
+    const bDate = normalizeTimestamp(b.createdAt) || normalizeTimestamp(b.updatedAt);
+    const aDate = normalizeTimestamp(a.createdAt) || normalizeTimestamp(a.updatedAt);
+    return bDate - aDate;
   });
 }
 
-/** Actualizar un coche */
-export async function updateCar(id, data) {
-  const docRef = doc(db, COLLECTION, id);
-  return updateDoc(docRef, { ...data, updatedAt: serverTimestamp() });
+export async function getFeaturedCars() {
+  const cars = await getCars();
+  return cars
+    .filter((car) => car.featured === true || String(car.featured).toLowerCase() === "true")
+    .slice(0, 8);
 }
 
-/** Eliminar un coche */
+export async function getCars(filters = {}) {
+  try {
+    const q = buildCarsQuery(filters);
+    const snapshot = await getDocs(q);
+    return snapshot.docs.map((snapshotDoc) => ({ id: snapshotDoc.id, ...snapshotDoc.data() }));
+  } catch (error) {
+    // Fallback for legacy docs that do not have createdAt or mixed field types.
+    const snapshot = await getDocs(collection(db, COLLECTION));
+    const allCars = snapshot.docs.map((snapshotDoc) => ({ id: snapshotDoc.id, ...snapshotDoc.data() }));
+
+    let filtered = allCars;
+    if (filters.featuredOnly) {
+      filtered = filtered.filter(
+        (car) => car.featured === true || String(car.featured).toLowerCase() === "true"
+      );
+    }
+    if (filters.fuel) {
+      filtered = filtered.filter((car) => car.fuel === filters.fuel);
+    }
+    if (filters.maxPrice) {
+      filtered = filtered.filter((car) => Number(car.price) <= Number(filters.maxPrice));
+    }
+    if (filters.minYear) {
+      filtered = filtered.filter((car) => Number(car.year) >= Number(filters.minYear));
+    }
+    if (filters.pageSize) {
+      filtered = filtered.slice(0, filters.pageSize);
+    }
+
+    return sortCarsByDateDesc(filtered);
+  }
+}
+
+export async function getCarById(id) {
+  const docRef = doc(db, COLLECTION, id);
+  const docSnap = await getDoc(docRef);
+
+  if (!docSnap.exists()) {
+    throw new Error("Coche no encontrado");
+  }
+
+  return { id: docSnap.id, ...docSnap.data() };
+}
+
+export async function addCar(carData) {
+  return addDoc(collection(db, COLLECTION), {
+    ...carData,
+    createdAt: serverTimestamp(),
+    updatedAt: serverTimestamp(),
+  });
+}
+
+export async function updateCar(id, data) {
+  const docRef = doc(db, COLLECTION, id);
+
+  return updateDoc(docRef, {
+    ...data,
+    updatedAt: serverTimestamp(),
+  });
+}
+
 export async function deleteCar(id) {
   return deleteDoc(doc(db, COLLECTION, id));
 }
