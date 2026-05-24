@@ -61,9 +61,13 @@
   }
 
   .hero__content {
-    width: min(100%, 320px);
+    width: min-content;
     padding-top: 44px;
     padding-bottom: 44px;
+
+    .btn-primary.hero__btn {
+      width: max-content;
+    }
   }
 
   .hero__title {

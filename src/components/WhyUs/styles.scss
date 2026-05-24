@@ -1,6 +1,6 @@
 .whyus {
     position: relative;
-    padding: 32px 0;
+    padding: 32px 100px;
     overflow: hidden;
     background:
         linear-gradient(180deg, rgba(8, 8, 8, 0.44) 0%, rgba(8, 8, 8, 0) 100%), url("../../assets/whyus-image.png") center/cover no-repeat
@@ -36,9 +36,7 @@
 }
 
 .whyus__layout {
-    gap: 18px;
     align-items: start;
-    padding: 0 100px;
 }
 
 .whyus__cards {
@@ -183,9 +181,6 @@
         font-size: 15px;
     }
 
-    .whyus__name {
-        font-size: 24px;
-    }
 
     .whyus__quote {
         font-size: 15px;
@@ -206,10 +201,10 @@
 }
 
 @media (max-width: 980px) {
-    .whyus__layout {
-        grid-template-columns: 1fr;
-        padding: 0 40px;
-    }
+    // .whyus__layout {
+    //     grid-template-columns: 1fr;
+    //     padding: 0 40px;
+    // }
 
     .whyus__stats {
         display: grid;
@@ -219,12 +214,18 @@
 
 @media (max-width: 760px) {
     .whyus {
-        padding: 34px 0;
+        padding: 34px 20px;
+
+        .whyus__summary .star-rating .whyus__summary-value {
+            font-size: 1.2rem;
+        }
     }
 
-    .whyus__layout {
-        padding: 0 20px;
-    }
+
+
+    // .whyus__layout {
+    //     padding: 0 20px;
+    // }
 
     .whyus__cards {
         grid-template-columns: 1fr;

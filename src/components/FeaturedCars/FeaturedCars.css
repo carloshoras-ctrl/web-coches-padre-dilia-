@@ -126,7 +126,7 @@
   }
 
   .featured__link {
-    position: static;
+    align-self: end;
   }
 
   .featured__grid {
