@@ -6,11 +6,11 @@ import "./Navbar.css";
 const publicRouteLinks = [
   { label: "Inicio", to: "/" },
   { label: "Coches", to: "/catalogo" },
+  { label: "Contacto", to: "/contacto" },
 ];
 
 const anchorLinks = [
   { label: "Nosotros", href: "/#nosotros" },
-  { label: "Contacto", href: "/#contacto" },
 ];
 
 export default function Navbar() {
