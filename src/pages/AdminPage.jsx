@@ -16,6 +16,7 @@ const EMPTY_FORM = {
   km: "",
   fuel: FUEL_OPTIONS[0],
   price: "",
+  imageUrl: "",
   badge: "",
   badgeColor: BADGE_COLORS[0],
   featured: true,
@@ -74,6 +75,7 @@ export default function AdminPage() {
       km: car.km ? String(car.km) : "",
       fuel: car.fuel || FUEL_OPTIONS[0],
       price: car.price ? String(car.price) : "",
+      imageUrl: car.imageUrl || "",
       badge: car.badge || "",
       badgeColor: car.badgeColor || BADGE_COLORS[0],
       featured: Boolean(car.featured),
@@ -94,14 +96,20 @@ export default function AdminPage() {
     const brand = form.brand.trim();
     const model = form.model.trim();
     const fuel = form.fuel.trim();
+    const imageUrl = form.imageUrl.trim();
     const badge = form.badge.trim();
 
     const year = Number(form.year);
     const km = Number(form.km);
     const price = Number(form.price);
 
-    if (!brand || !model || !fuel || !year || !km || !price) {
-      setFormError("Completa marca, modelo, combustible, anio, km y precio.");
+    if (!brand || !model || !fuel || !year || !km || !price || !imageUrl) {
+      setFormError("Completa marca, modelo, combustible, anio, km, precio e imagen.");
+      return;
+    }
+
+    if (!/^https?:\/\//i.test(imageUrl)) {
+      setFormError("La URL de imagen debe empezar por http:// o https://.");
       return;
     }
 
@@ -112,6 +120,7 @@ export default function AdminPage() {
       year,
       km,
       price,
+      imageUrl,
       badge: badge || null,
       badgeColor: badge ? form.badgeColor : null,
       featured: Boolean(form.featured),
@@ -257,6 +266,17 @@ export default function AdminPage() {
                         min="0"
                         value={form.price}
                         onChange={(event) => setForm((prev) => ({ ...prev, price: event.target.value }))}
+                        required
+                        />
+                      </label>
+
+                    <label>
+                      URL de imagen
+                      <input
+                        type="url"
+                        value={form.imageUrl}
+                        onChange={(event) => setForm((prev) => ({ ...prev, imageUrl: event.target.value }))}
+                        placeholder="https://images.unsplash.com/..."
                         required
                       />
                     </label>
