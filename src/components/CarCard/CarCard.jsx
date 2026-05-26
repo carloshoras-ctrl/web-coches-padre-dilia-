@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./CarCard.css";
 
 export default function CarCard({ car, isFavorite, onToggleFavorite }) {
@@ -53,12 +54,12 @@ export default function CarCard({ car, isFavorite, onToggleFavorite }) {
         <p className="car-card__price">{Number(price || 0).toLocaleString("es-ES")} EUR</p>
 
         <div className="car-card__actions">
-          <a href="#" className="car-card__btn">
+          <Link to={`/coches/${id}`} className="car-card__btn">
             Ver ficha
-          </a>
-          <a href="#contacto" className="car-card__btn car-card__btn--outline">
+          </Link>
+          <Link to="/contacto" className="car-card__btn car-card__btn--outline">
             Contactar
-          </a>
+          </Link>
         </div>
       </div>
     </article>
