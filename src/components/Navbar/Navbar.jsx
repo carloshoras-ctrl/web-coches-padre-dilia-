@@ -25,9 +25,7 @@ export default function Navbar() {
     <header className="navbar">
       <div className="navbar__inner">
         <Link to="/" className="navbar__logo" onClick={() => setMenuOpen(false)}>
-          <span className="logo__auto">AUTO</span>
-          <span className="logo__select">SELECT</span>
-          <span className="logo__sub">COCHES DE SEGUNDA MANO</span>
+          <img src="/assets/logo.png" alt="AutoSelect" className="navbar__logo-image" />
         </Link>
 
         <nav className={`navbar__links ${menuOpen ? "open" : ""}`}>
