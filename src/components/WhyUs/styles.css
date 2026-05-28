@@ -149,10 +149,13 @@
   color: var(--white);
 }
 
-.whyus__summary-label,
-.whyus__summary-value {
+.whyus__summary-label {
   font-size: 30px;
   font-weight: 700;
+}
+
+.whyus__summary-value {
+  font-weight: unset;
 }
 
 .whyus__summary {
@@ -224,5 +227,11 @@
   }
   .whyus__summary {
     flex-wrap: wrap;
+  }
+}
+@media (max-width: 820px) {
+  .whyus {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }/*# sourceMappingURL=styles.css.map */

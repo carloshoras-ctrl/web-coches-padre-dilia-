@@ -103,7 +103,7 @@ Cosas que faltan
 -Pagina de Nosotros
 -En "Publicar coche" la marca deberia ser un dropdown
 -Añadir página individual de cada coche
--Quitar botón de favorito y "top ventas"
+-Quitar botón de favorito y "top ventas" y "eco"
 (-Paginación de reviews)
 -Conectar con bbdd Firebase
 -AWS (despliegue y bbdd)
@@ -112,6 +112,5 @@ Cosas que faltan
 -en la pantalla de catalogo hay que añadir esqueleto mientras cargan los coches
 -etiqueta medioambiental en la imagen del coche arriba a la dercha
 -mirar diseño de las cards
--ficha individual de cada coche
 -carrousel imagenes en cada card de coche
 -preguntar IA como gestinoar cards de Reseñas (poner solo 4 en version movil +paginador?)
