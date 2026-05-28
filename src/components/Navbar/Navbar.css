@@ -17,49 +17,16 @@
 /* Logo */
 .navbar__logo {
   display: flex;
-  flex-direction: column;
-  line-height: 1;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  line-height: 1;
 }
 
-.logo__auto {
-  font-size: 22px;
-  font-weight: 800;
-  color: var(--white);
-  letter-spacing: -0.5px;
-}
-
-.logo__select {
-  font-size: 22px;
-  font-weight: 800;
-  color: var(--orange);
-  letter-spacing: -0.5px;
-  margin-top: -4px;
-}
-
-/* Inline logo on one line */
-.navbar__logo {
-  flex-direction: row;
-  align-items: flex-end;
-  gap: 0;
-  flex-wrap: wrap;
-}
-
-.logo__auto,
-.logo__select {
-  display: inline;
-  font-size: 24px;
-}
-
-.logo__sub {
+.navbar__logo-image {
+  width: 184px;
+  height: auto;
   display: block;
-  font-size: 8px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  color: var(--gray);
-  text-transform: uppercase;
-  width: 100%;
-  margin-top: 1px;
 }
 
 /* Nav links */
@@ -215,5 +182,11 @@
 
   .navbar__inner {
     position: relative;
+  }
+}
+
+@media (max-width: 420px) {
+  .navbar__logo-image {
+    width: 150px;
   }
 }
