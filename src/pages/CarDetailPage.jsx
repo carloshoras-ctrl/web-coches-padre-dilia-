@@ -254,7 +254,7 @@ export default function CarDetailPage() {
   ];
 
   const detailCards = [
-    { label: "Ano", value: car?.year || "-", icon: "year" },
+    { label: "Año", value: car?.year || "-", icon: "year" },
     { label: "Kilometros", value: formatKm(car?.km), icon: "km" },
     { label: "Combustible", value: car?.fuel || "-", icon: "fuel" },
     { label: "Transmision", value: transmission, icon: "transmission" },
@@ -317,7 +317,6 @@ export default function CarDetailPage() {
               <section className="car-detail-layout">
                 <div className="car-detail-main">
                   <header className="car-detail-hero">
-                    <p className="car-detail-card__tag">{car.brand}</p>
                     <h1>
                       {car.brand} <span>{car.model}</span>
                     </h1>
@@ -325,146 +324,99 @@ export default function CarDetailPage() {
                       <p className="car-detail-card__price">{formatPrice(car.price)} EUR</p>
                       <span className="car-detail-hero__iva-pill">IVA incluido</span>
                     </div>
-                    <div className="car-detail-keyfacts">
-                      {keyFacts.map((fact) => (
-                        <article key={fact.label} className="car-detail-keyfacts__item">
-                          <span className="car-detail-keyfacts__icon">
-                            <SpecIcon kind={fact.icon} />
+                  </header>
+                  <section className="car-detail-media-layout">
+                    <div className="car-detail-media-column">
+                      <section className="car-detail-media">
+                        {car.badge && (
+                          <span className={`car-detail-media__badge car-detail-media__badge--${car.badgeColor || "orange"}`}>
+                            {car.badge}
                           </span>
-                          <strong>{fact.value}</strong>
+                        )}
+
+                        <img src={activeImage} alt={`${car.brand} ${car.model}`} className="car-detail-media__image" />
+
+                        {imageList.length > 1 && (
+                          <>
+                            <button
+                              className="car-detail-media__nav car-detail-media__nav--prev"
+                              type="button"
+                              onClick={showPrevImage}
+                              aria-label="Imagen anterior"
+                            >
+                              <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M15 5l-7 7 7 7" />
+                              </svg>
+                            </button>
+
+                            <button
+                              className="car-detail-media__nav car-detail-media__nav--next"
+                              type="button"
+                              onClick={showNextImage}
+                              aria-label="Imagen siguiente"
+                            >
+                              <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M9 5l7 7-7 7" />
+                              </svg>
+                            </button>
+                          </>
+                        )}
+                      </section>
+
+                      <section className="car-detail-thumbs">
+                        {thumbsToShow.map((image, index) => {
+                          const isActive = image === activeImage;
+                          const showHiddenCounter = hiddenThumbs > 0 && index === thumbsToShow.length - 1;
+
+                          return (
+                            <button
+                              type="button"
+                              key={`${image}-${index}`}
+                              className={`car-detail-thumbs__item ${isActive ? "is-active" : ""}`}
+                              onClick={() => setActiveImageIndex(index)}
+                              aria-label={`Mostrar imagen ${index + 1}`}
+                            >
+                              <img src={image} alt={`${car.brand} ${car.model} vista ${index + 1}`} />
+                              {showHiddenCounter && (
+                                <span className="car-detail-thumbs__more">+{hiddenThumbs}</span>
+                              )}
+                            </button>
+                          );
+                        })}
+                      </section>
+                    </div>
+
+                    <section className="car-detail-specs">
+                      {detailCards.map((item) => (
+                        <article key={item.label} className="car-detail-spec">
+                          <span className="car-detail-spec__icon">
+                            <SpecIcon kind={item.icon} />
+                          </span>
+                          <div>
+                            <p>{item.label}</p>
+                            <strong className={item.badge ? "car-detail-spec__eco-tag" : ""}>{item.value}</strong>
+                          </div>
                         </article>
                       ))}
-                    </div>
-                  </header>
-
-                  <section className="car-detail-media">
-                    {car.badge && (
-                      <span className={`car-detail-media__badge car-detail-media__badge--${car.environmentalBadge || "orange"}`}>
-                        {car.badge}
-                      </span>
-                    )}
-
-                    <img src={activeImage} alt={`${car.brand} ${car.model}`} className="car-detail-media__image" />
-
-                    {imageList.length > 1 && (
-                      <>
-                        <button
-                          className="car-detail-media__nav car-detail-media__nav--prev"
-                          type="button"
-                          onClick={showPrevImage}
-                          aria-label="Imagen anterior"
-                        >
-                          <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M15 5l-7 7 7 7" />
-                          </svg>
-                        </button>
-
-                        <button
-                          className="car-detail-media__nav car-detail-media__nav--next"
-                          type="button"
-                          onClick={showNextImage}
-                          aria-label="Imagen siguiente"
-                        >
-                          <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M9 5l7 7-7 7" />
-                          </svg>
-                        </button>
-                      </>
-                    )}
-                  </section>
-
-                  <section className="car-detail-thumbs">
-                    {thumbsToShow.map((image, index) => {
-                      const isActive = image === activeImage;
-                      const showHiddenCounter = hiddenThumbs > 0 && index === thumbsToShow.length - 1;
-
-                      return (
-                        <button
-                          type="button"
-                          key={`${image}-${index}`}
-                          className={`car-detail-thumbs__item ${isActive ? "is-active" : ""}`}
-                          onClick={() => setActiveImageIndex(index)}
-                          aria-label={`Mostrar imagen ${index + 1}`}
-                        >
-                          <img src={image} alt={`${car.brand} ${car.model} vista ${index + 1}`} />
-                          {showHiddenCounter && (
-                            <span className="car-detail-thumbs__more">+{hiddenThumbs}</span>
-                          )}
-                        </button>
-                      );
-                    })}
+                    </section>
                   </section>
                 </div>
 
-                <aside className="car-detail-sidebar">
-                  <div className="car-detail-sidebar__actions">
-                    <a href="tel:600123456" className="car-detail-btn">
-                      <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M22 16.92v3a2 2 0 01-2.18 2A19.8 19.8 0 0111.2 18.9a19.5 19.5 0 01-6.1-6.1A19.8 19.8 0 012.08 4.2 2 2 0 014.06 2h3a2 2 0 012 1.72c.1.95.35 1.88.72 2.76a2 2 0 01-.45 2.11l-.9.9a16 16 0 006.18 6.18l.9-.9a2 2 0 012.1-.45 12.8 12.8 0 002.77.72A2 2 0 0122 16.92z" />
-                      </svg>
-                      Llamar ahora
-                    </a>
-
-                    <Link to="/contacto" className="car-detail-btn car-detail-btn--outline">
-                      <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M4 5h16a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1z" />
-                        <path d="M21 7l-9 6L3 7" />
-                      </svg>
-                      Contactar por formulario
-                    </Link>
-                  </div>
-
-                  <button className="car-detail-favorite-btn" type="button">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
-                    </svg>
-                    Anadir a favoritos
-                  </button>
-
-                  <article className="car-detail-sidebar-card">
-                    <h2>Informacion destacada</h2>
-                    <ul className="car-detail-highlight-list">
-                      {highlights.map((highlight) => (
-                        <li key={highlight.title}>
-                          <span>
-                            <InfoIcon kind={highlight.icon} />
-                          </span>
-                          <div>
-                            <strong>{highlight.title}</strong>
-                            <p>{highlight.subtitle}</p>
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  </article>
-
-                  <article className="car-detail-contact-card">
-                    <h2>Te interesa este coche?</h2>
-                    <p>Contactanos y te asesoramos sin compromiso.</p>
-                    <Link to="/contacto" className="car-detail-contact-card__btn">
-                      Contactar ahora
-                      <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M5 12h14" />
-                        <path d="M13 6l6 6-6 6" />
-                      </svg>
-                    </Link>
-                  </article>
-                </aside>
               </section>
 
-              <section className="car-detail-specs">
-                {detailCards.map((item) => (
-                  <article key={item.label} className="car-detail-spec">
-                    <span className="car-detail-spec__icon">
-                      <SpecIcon kind={item.icon} />
-                    </span>
-                    <div>
-                      <p>{item.label}</p>
-                      <strong className={item.badge ? "car-detail-spec__eco-tag" : ""}>{item.value}</strong>
-                    </div>
-                  </article>
-                ))}
-              </section>
+              <article className="car-detail-contact-card car-detail-contact-card--full">
+                <div className="car-detail-contact-card__text">
+                  <h2>Te interesa este coche?</h2>
+                  <p>Contactanos y te asesoramos sin compromiso.</p>
+                </div>
+                <Link to="/contacto" className="car-detail-contact-card__btn">
+                  Contactar ahora
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12h14" />
+                    <path d="M13 6l6 6-6 6" />
+                  </svg>
+                </Link>
+              </article>
 
               <section className="car-detail-bottom">
                 <article className="car-detail-notes">
