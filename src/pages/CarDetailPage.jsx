@@ -339,7 +339,7 @@ export default function CarDetailPage() {
 
                   <section className="car-detail-media">
                     {car.badge && (
-                      <span className={`car-detail-media__badge car-detail-media__badge--${car.badgeColor || "orange"}`}>
+                      <span className={`car-detail-media__badge car-detail-media__badge--${car.environmentalBadge || "orange"}`}>
                         {car.badge}
                       </span>
                     )}

@@ -7,7 +7,7 @@ import { addCar, deleteCar, getCars, updateCar } from "../firebase/carsService";
 import "./AdminPage.css";
 
 const FUEL_OPTIONS = ["Gasolina", "Diesel", "Hibrido", "Electrico"];
-const BADGE_COLORS = ["orange", "green"];
+const ETIQUETAS_MEDIOAMBIENTALES = ["0 Emisiones", "ECO", "C", "B", "Sin Etiqueta"];
 
 const EMPTY_FORM = {
   brand: "",
@@ -18,8 +18,17 @@ const EMPTY_FORM = {
   price: "",
   imageUrl: "",
   badge: "",
-  badgeColor: BADGE_COLORS[0],
+  environmentalBadge: ETIQUETAS_MEDIOAMBIENTALES[0],
   featured: true,
+};
+
+
+const ENVIRONMENTAL_BADGE_MAP = {
+  "0 Emisiones": "zero",
+  "ECO": "eco",
+  "C": "c",
+  "B": "b",
+  "Sin Etiqueta": "none"
 };
 
 function formatPrice(value) {
@@ -77,7 +86,7 @@ export default function AdminPage() {
       price: car.price ? String(car.price) : "",
       imageUrl: car.imageUrl || "",
       badge: car.badge || "",
-      badgeColor: car.badgeColor || BADGE_COLORS[0],
+      environmentalBadge: car.environmentalBadge || ETIQUETAS_MEDIOAMBIENTALES[0],
       featured: Boolean(car.featured),
     });
     setFormError("");
@@ -98,13 +107,15 @@ export default function AdminPage() {
     const fuel = form.fuel.trim();
     const imageUrl = form.imageUrl.trim();
     const badge = form.badge.trim();
+    const environmentalBadge = ENVIRONMENTAL_BADGE_MAP[form.environmentalBadge]
+    console.log({ environmentalBadge })
 
     const year = Number(form.year);
     const km = Number(form.km);
     const price = Number(form.price);
 
     if (!brand || !model || !fuel || !year || !km || !price || !imageUrl) {
-      setFormError("Completa marca, modelo, combustible, anio, km, precio e imagen.");
+      setFormError("Completa marca, modelo, combustible, añoo, km, precio e imagen.");
       return;
     }
 
@@ -122,7 +133,7 @@ export default function AdminPage() {
       price,
       imageUrl,
       badge: badge || null,
-      badgeColor: badge ? form.badgeColor : null,
+      environmentalBadge,
       featured: Boolean(form.featured),
     };
 
@@ -267,8 +278,8 @@ export default function AdminPage() {
                         value={form.price}
                         onChange={(event) => setForm((prev) => ({ ...prev, price: event.target.value }))}
                         required
-                        />
-                      </label>
+                      />
+                    </label>
 
                     <label>
                       URL de imagen
@@ -292,13 +303,12 @@ export default function AdminPage() {
                     </label>
 
                     <label>
-                      Color etiqueta
+                      Etiqueta Medioambiental
                       <select
-                        value={form.badgeColor}
-                        onChange={(event) => setForm((prev) => ({ ...prev, badgeColor: event.target.value }))}
-                        disabled={!form.badge.trim()}
+                        value={form.environmentalBadge}
+                        onChange={(event) => setForm((prev) => ({ ...prev, environmentalBadge: event.target.value }))}
                       >
-                        {BADGE_COLORS.map((color) => (
+                        {ETIQUETAS_MEDIOAMBIENTALES.map((color) => (
                           <option key={color} value={color}>
                             {color}
                           </option>

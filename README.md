@@ -59,7 +59,7 @@ Cada documento debe tener estos campos:
 | fuel        | string    | "Diésel"             |
 | price       | number    | 16900                |
 | badge       | string?   | "TOP VENTAS"         |
-| badgeColor  | string?   | "orange"             |
+| environmentalBadge  | string?   | "orange"             |
 | imageUrl    | string    | (Firebase Storage URL)|
 | featured    | boolean   | true                 |
 | createdAt   | timestamp | serverTimestamp()    |
@@ -97,20 +97,23 @@ Cosas que faltan
 -Sticky whatsapp
 -Añadir el Logo
 -Pasar a Next.js
--Mirar tema responsive
+~~-Mirar tema responsive~~
 -Cambiar contenido/descripciones... poner algo más legit
 -Pagina de Contacto
 -Pagina de Nosotros
 -En "Publicar coche" la marca deberia ser un dropdown
 -Añadir página individual de cada coche
--Quitar botón de favorito y "top ventas" y "eco"
+~~-Quitar "top ventas" y "eco"~~
 (-Paginación de reviews)
 -Conectar con bbdd Firebase
 -AWS (despliegue y bbdd)
 -Preguntar a tu padre cuánto paga su amigo por la web
 -Decir a tu padre que pida reseñas de wallapop
 -en la pantalla de catalogo hay que añadir esqueleto mientras cargan los coches
--etiqueta medioambiental en la imagen del coche arriba a la dercha
+~~-etiqueta medioambiental en la imagen del coche arriba a la dercha~~
 -mirar diseño de las cards
 -carrousel imagenes en cada card de coche
+-Añadir modal panel admin
+-refactorizar/revisar codigo porque los componentes dan SIDA (VIH)
 -preguntar IA como gestinoar cards de Reseñas (poner solo 4 en version movil +paginador?)
+-quitar frase del logo

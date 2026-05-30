@@ -1,17 +1,20 @@
 import { Link } from "react-router-dom";
 import "./CarCard.css";
+import EnvironmentalBadge from "../EnvironmentalBadge/EnvironmentalBadge";
 
-export default function CarCard({ car, isFavorite, onToggleFavorite }) {
-  const { id, brand, model, year, km, fuel, price, badge, badgeColor, imageUrl } = car;
+export default function CarCard({ car, isFavorite }) {
+  const { id, brand, model, year, km, fuel, price, badge, environmentalBadge, imageUrl } = car;
+  console.log({ car })
 
   return (
     <article className="car-card">
       <div className="car-card__img-wrap">
-        {badge && (
-          <span className={`car-card__badge car-card__badge--${badgeColor}`}>
+        {/* {badge && (
+          <span className={`car-card__badge car-card__badge--${environmentalBadge}`}>
             {badge}
           </span>
-        )}
+        )} */}
+        <EnvironmentalBadge environmentalBadge={environmentalBadge} />
 
         <img
           src={imageUrl || "https://via.placeholder.com/600x360?text=Sin+imagen"}
