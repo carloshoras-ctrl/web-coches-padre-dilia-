@@ -50,7 +50,7 @@
 
 .car-detail-media-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 270px;
+  grid-template-columns: 0.65fr 0.35fr;
   gap: 12px;
   align-items: start;
 }
@@ -363,7 +363,7 @@
   gap: 10px;
 }
 
-.car-detail-highlight-list li > span {
+.car-detail-highlight-list li>span {
   color: var(--orange);
   width: 21px;
   height: 21px;
@@ -554,7 +554,7 @@
   gap: 9px;
 }
 
-.car-detail-features-grid li > span {
+.car-detail-features-grid li>span {
   width: 20px;
   height: 20px;
   color: var(--orange);
@@ -592,7 +592,7 @@
   gap: 0 20px;
 }
 
-.car-detail-tech-list > div {
+.car-detail-tech-list>div {
   border-top: 1px solid #ececec;
   padding: 8px 0;
   display: flex;
@@ -734,4 +734,10 @@
   .car-detail-notes p {
     font-size: 15px;
   }
+}
+
+.car-detail-page .car-card__environmental_badge {
+  top: 12px;
+  right: 12px;
+  width: 58px;
 }

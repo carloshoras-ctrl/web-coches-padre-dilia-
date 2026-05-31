@@ -5,6 +5,7 @@ import { useAdminAuth } from "../context/AdminAuthContext";
 import { logoutAdmin } from "../firebase/authService";
 import { addCar, deleteCar, getCars, updateCar } from "../firebase/carsService";
 import "./AdminPage.css";
+import { ENVIRONMENTAL_BADGE_OPTIONS, TRANSMISSION_OPTIONS } from "../constants/formOptions";
 
 const FUEL_OPTIONS = ["Gasolina", "Diesel", "Hibrido", "Electrico"];
 const ETIQUETAS_MEDIOAMBIENTALES = ["0 Emisiones", "ECO", "C", "B", "Sin Etiqueta"];
@@ -234,7 +235,7 @@ export default function AdminPage() {
                     </label>
 
                     <label>
-                      Anio
+                      Año
                       <input
                         type="number"
                         min="1990"
@@ -250,7 +251,7 @@ export default function AdminPage() {
                       <input
                         type="number"
                         min="0"
-                        value={form.km}
+                        value={Number(form.km).toLocaleString("es-ES")}
                         onChange={(event) => setForm((prev) => ({ ...prev, km: event.target.value }))}
                         required
                       />
@@ -269,6 +270,19 @@ export default function AdminPage() {
                         ))}
                       </select>
                     </label>
+                    <label>
+                      Cambio
+                      <select
+                        value={form.transmission}
+                        onChange={(event) => setForm((prev) => ({ ...prev, transmission: event.target.value }))}
+                      >
+                        {TRANSMISSION_OPTIONS.map(({ value, label }) => (
+                          <option key={value} value={value}>
+                            {label}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
 
                     <label>
                       Precio EUR
@@ -277,6 +291,107 @@ export default function AdminPage() {
                         min="0"
                         value={form.price}
                         onChange={(event) => setForm((prev) => ({ ...prev, price: event.target.value }))}
+                        required
+                      />
+                    </label>
+                    <label>
+                      Potencia (CV)
+                      <input
+                        type="number"
+                        min="0"
+                        value={form.power}
+                        onChange={(event) => setForm((prev) => ({ ...prev, power: event.target.value }))}
+                        required
+                      />
+                    </label>
+                    <label>
+                      Etiqueta Medioambiental
+                      <select
+                        value={form.environmentalBadge}
+                        onChange={(event) => setForm((prev) => ({ ...prev, environmentalBadge: event.target.value }))}
+                      >
+                        {ENVIRONMENTAL_BADGE_OPTIONS.map(({ value, label }) => (
+                          <option key={value} value={value}>
+                            {label}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                    <label>
+                      Carrocería
+                      <input
+                        type="text"
+                        value={form.body}
+                        onChange={(event) => setForm((prev) => ({ ...prev, body: event.target.value }))}
+                        required
+                      />
+                    </label>
+                    <label>
+                      Color
+                      <input
+                        type="text"
+                        value={form.color}
+                        onChange={(event) => setForm((prev) => ({ ...prev, color: event.target.value }))}
+                        required
+                      />
+                    </label>
+                    <label>
+                      {"Cilindrada (cc)"}
+                      <input
+                        type="number"
+                        min="0"
+                        value={form.engineSize}
+                        onChange={(event) => setForm((prev) => ({ ...prev, engineSize: event.target.value }))}
+                        required
+                      />
+                    </label>
+                    <label>
+                      Número de Cilindros
+                      <input
+                        type="number"
+                        min="0"
+                        value={form.numCilinders}
+                        onChange={(event) => setForm((prev) => ({ ...prev, numCilinders: event.target.value }))}
+                        required
+                      />
+                    </label>
+                    <label>
+                      Marchas
+                      <input
+                        type="number"
+                        min="0"
+                        value={form.gears}
+                        onChange={(event) => setForm((prev) => ({ ...prev, gears: event.target.value }))}
+                        required
+                      />
+                    </label>
+                    <label>
+                      Plazas
+                      <input
+                        type="number"
+                        min="0"
+                        value={form.seats}
+                        onChange={(event) => setForm((prev) => ({ ...prev, seats: event.target.value }))}
+                        required
+                      />
+                    </label>
+                    <label>
+                      Puertas
+                      <input
+                        type="number"
+                        min="0"
+                        value={form.doors}
+                        onChange={(event) => setForm((prev) => ({ ...prev, doors: event.target.value }))}
+                        required
+                      />
+                    </label>
+                    <label>
+                      Normativa Emisiones
+                      <input
+                        type="text"
+                        value={form.euroStandard}
+                        onChange={(event) => setForm((prev) => ({ ...prev, euroStandard: event.target.value }))}
+                        placeholder={`p.e "EURO 5"`}
                         required
                       />
                     </label>
@@ -292,29 +407,7 @@ export default function AdminPage() {
                       />
                     </label>
 
-                    <label>
-                      Etiqueta (opcional)
-                      <input
-                        type="text"
-                        value={form.badge}
-                        onChange={(event) => setForm((prev) => ({ ...prev, badge: event.target.value }))}
-                        placeholder="Ej: Top ventas"
-                      />
-                    </label>
 
-                    <label>
-                      Etiqueta Medioambiental
-                      <select
-                        value={form.environmentalBadge}
-                        onChange={(event) => setForm((prev) => ({ ...prev, environmentalBadge: event.target.value }))}
-                      >
-                        {ETIQUETAS_MEDIOAMBIENTALES.map((color) => (
-                          <option key={color} value={color}>
-                            {color}
-                          </option>
-                        ))}
-                      </select>
-                    </label>
                   </div>
 
                   <label className="admin-checkbox">

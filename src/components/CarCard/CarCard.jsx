@@ -9,11 +9,6 @@ export default function CarCard({ car, isFavorite }) {
   return (
     <article className="car-card">
       <div className="car-card__img-wrap">
-        {/* {badge && (
-          <span className={`car-card__badge car-card__badge--${environmentalBadge}`}>
-            {badge}
-          </span>
-        )} */}
         <EnvironmentalBadge environmentalBadge={environmentalBadge} />
 
         <img

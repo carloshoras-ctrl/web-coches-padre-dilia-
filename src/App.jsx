@@ -4,7 +4,7 @@ import CatalogPage from "./pages/CatalogPage";
 import AdminPage from "./pages/AdminPage";
 import AdminLoginPage from "./pages/AdminLoginPage";
 import ContactPage from "./pages/ContactPage";
-import CarDetailPage from "./pages/CarDetailPage";
+import CarDetailPage from "./pages/CarDetailPage/CarDetailPage";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import WhatsAppButton from "./components/WhatsappButton/WhatsappButton";
 

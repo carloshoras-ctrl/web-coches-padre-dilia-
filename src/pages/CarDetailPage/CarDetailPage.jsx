@@ -1,9 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import Footer from "../components/Footer/Footer";
-import Navbar from "../components/Navbar/Navbar";
-import { getCarById } from "../firebase/carsService";
+import Footer from "../../components/Footer/Footer";
+import Navbar from "../../components/Navbar/Navbar";
+import { getCarById } from "../../firebase/carsService";
 import "./CarDetailPage.css";
+import CarSpecifications from "./CarSpecifications/CarSpecifications";
+import EnvironmentalBadge from "../../components/EnvironmentalBadge/EnvironmentalBadge";
 
 function formatPrice(value) {
   return Number(value || 0).toLocaleString("es-ES");
@@ -328,11 +330,7 @@ export default function CarDetailPage() {
                   <section className="car-detail-media-layout">
                     <div className="car-detail-media-column">
                       <section className="car-detail-media">
-                        {car.badge && (
-                          <span className={`car-detail-media__badge car-detail-media__badge--${car.badgeColor || "orange"}`}>
-                            {car.badge}
-                          </span>
-                        )}
+                        <EnvironmentalBadge environmentalBadge={car?.environmentalBadge} />
 
                         <img src={activeImage} alt={`${car.brand} ${car.model}`} className="car-detail-media__image" />
 
@@ -385,8 +383,8 @@ export default function CarDetailPage() {
                         })}
                       </section>
                     </div>
-
-                    <section className="car-detail-specs">
+                    <CarSpecifications selectedCar={car} />
+                    {/* <section className="car-detail-specs">
                       {detailCards.map((item) => (
                         <article key={item.label} className="car-detail-spec">
                           <span className="car-detail-spec__icon">
@@ -398,7 +396,7 @@ export default function CarDetailPage() {
                           </div>
                         </article>
                       ))}
-                    </section>
+                    </section> */}
                   </section>
                 </div>
 

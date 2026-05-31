@@ -117,3 +117,8 @@ Cosas que faltan
 -refactorizar/revisar codigo porque los componentes dan SIDA (VIH)
 -preguntar IA como gestinoar cards de Reseñas (poner solo 4 en version movil +paginador?)
 -quitar frase del logo
+-Etiqueta medioambiental en pagina individual de coche
+-Hacer que se puedan subir imagenes del coche en lugar de solo url?
+-Para el form quizas se puede hacer un .map tipo {label: Marca, key: marca, inputType: text/number, constants: ENVIRONMENTAL_BADGE tal} y en funcion de eso renderizamos un inputteext o select o lo que sea
+-Pasar proyecto a Typescript
+-en el display de consumo(L/100 km) falta montar lo de medio/ciudad/carretera
