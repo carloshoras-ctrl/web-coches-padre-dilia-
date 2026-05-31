@@ -92,20 +92,20 @@ useEffect(() => {
 
 
 Cosas que faltan
--Arreglar error CORS
--Añadir ruta protegida
--Sticky whatsapp
--Añadir el Logo
+~~-Arreglar error CORS~~
+~~-Añadir ruta protegida~~
+~~-Sticky whatsapp~~
+~~-Añadir el Logo~~
 -Pasar a Next.js
-~~-Mirar tema responsive~~
+~~Mirar tema responsive~~
 -Cambiar contenido/descripciones... poner algo más legit
--Pagina de Contacto
+~~-Pagina de Contacto~~
 -Pagina de Nosotros
 -En "Publicar coche" la marca deberia ser un dropdown
--Añadir página individual de cada coche
+~~-Añadir página individual de cada coche~~
 ~~-Quitar "top ventas" y "eco"~~
 (-Paginación de reviews)
--Conectar con bbdd Firebase
+~~-Conectar con bbdd Firebase~~
 -AWS (despliegue y bbdd)
 -Preguntar a tu padre cuánto paga su amigo por la web
 -Decir a tu padre que pida reseñas de wallapop
