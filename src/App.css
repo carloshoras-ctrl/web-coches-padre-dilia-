@@ -15,14 +15,20 @@
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
-  --shadow-md: 0 4px 20px rgba(0,0,0,0.10);
-  --shadow-lg: 0 8px 40px rgba(0,0,0,0.14);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.10);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.14);
   --font: 'Barlow', 'Segoe UI', sans-serif;
 }
 
 /* ===== Reset ===== */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
   font-family: var(--font);
@@ -44,11 +50,21 @@ body {
   overflow-x: hidden;
 }
 
-a { text-decoration: none; color: inherit; }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-img { display: block; max-width: 100%; }
+img {
+  display: block;
+  max-width: 100%;
+}
 
-button { cursor: pointer; font-family: var(--font); border: none; }
+button {
+  cursor: pointer;
+  font-family: var(--font);
+  border: none;
+}
 
 
 .section-tag {
@@ -75,7 +91,10 @@ button { cursor: pointer; font-family: var(--font); border: none; }
   transition: background 0.2s, transform 0.15s;
 }
 
-.btn-primary:hover { background: var(--orange-dark); transform: translateY(-1px); }
+.btn-primary:hover {
+  background: var(--orange-dark);
+  transform: translateY(-1px);
+}
 
 .btn-outline {
   display: inline-flex;
@@ -92,4 +111,7 @@ button { cursor: pointer; font-family: var(--font); border: none; }
   transition: background 0.2s, color 0.2s;
 }
 
-.btn-outline:hover { background: var(--white); color: var(--orange); }
+.btn-outline:hover {
+  background: var(--white);
+  color: var(--orange);
+}

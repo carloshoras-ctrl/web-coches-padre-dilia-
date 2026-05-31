@@ -5,9 +5,10 @@ import { useAdminAuth } from "../context/AdminAuthContext";
 import { logoutAdmin } from "../firebase/authService";
 import { addCar, deleteCar, getCars, updateCar } from "../firebase/carsService";
 import "./AdminPage.css";
+import { ENVIRONMENTAL_BADGE_OPTIONS, TRANSMISSION_OPTIONS } from "../constants/formOptions";
 
 const FUEL_OPTIONS = ["Gasolina", "Diesel", "Hibrido", "Electrico"];
-const BADGE_COLORS = ["orange", "green"];
+const ETIQUETAS_MEDIOAMBIENTALES = ["0 Emisiones", "ECO", "C", "B", "Sin Etiqueta"];
 
 const EMPTY_FORM = {
   brand: "",
@@ -18,8 +19,17 @@ const EMPTY_FORM = {
   price: "",
   imageUrl: "",
   badge: "",
-  badgeColor: BADGE_COLORS[0],
+  environmentalBadge: ETIQUETAS_MEDIOAMBIENTALES[0],
   featured: true,
+};
+
+
+const ENVIRONMENTAL_BADGE_MAP = {
+  "0 Emisiones": "zero",
+  "ECO": "eco",
+  "C": "c",
+  "B": "b",
+  "Sin Etiqueta": "none"
 };
 
 function formatPrice(value) {
@@ -77,7 +87,7 @@ export default function AdminPage() {
       price: car.price ? String(car.price) : "",
       imageUrl: car.imageUrl || "",
       badge: car.badge || "",
-      badgeColor: car.badgeColor || BADGE_COLORS[0],
+      environmentalBadge: car.environmentalBadge || ETIQUETAS_MEDIOAMBIENTALES[0],
       featured: Boolean(car.featured),
     });
     setFormError("");
@@ -98,13 +108,15 @@ export default function AdminPage() {
     const fuel = form.fuel.trim();
     const imageUrl = form.imageUrl.trim();
     const badge = form.badge.trim();
+    const environmentalBadge = ENVIRONMENTAL_BADGE_MAP[form.environmentalBadge]
+    console.log({ environmentalBadge })
 
     const year = Number(form.year);
     const km = Number(form.km);
     const price = Number(form.price);
 
     if (!brand || !model || !fuel || !year || !km || !price || !imageUrl) {
-      setFormError("Completa marca, modelo, combustible, anio, km, precio e imagen.");
+      setFormError("Completa marca, modelo, combustible, añoo, km, precio e imagen.");
       return;
     }
 
@@ -122,7 +134,7 @@ export default function AdminPage() {
       price,
       imageUrl,
       badge: badge || null,
-      badgeColor: badge ? form.badgeColor : null,
+      environmentalBadge,
       featured: Boolean(form.featured),
     };
 
@@ -223,7 +235,7 @@ export default function AdminPage() {
                     </label>
 
                     <label>
-                      Anio
+                      Año
                       <input
                         type="number"
                         min="1990"
@@ -239,7 +251,7 @@ export default function AdminPage() {
                       <input
                         type="number"
                         min="0"
-                        value={form.km}
+                        value={Number(form.km).toLocaleString("es-ES")}
                         onChange={(event) => setForm((prev) => ({ ...prev, km: event.target.value }))}
                         required
                       />
@@ -258,6 +270,19 @@ export default function AdminPage() {
                         ))}
                       </select>
                     </label>
+                    <label>
+                      Cambio
+                      <select
+                        value={form.transmission}
+                        onChange={(event) => setForm((prev) => ({ ...prev, transmission: event.target.value }))}
+                      >
+                        {TRANSMISSION_OPTIONS.map(({ value, label }) => (
+                          <option key={value} value={value}>
+                            {label}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
 
                     <label>
                       Precio EUR
@@ -267,8 +292,109 @@ export default function AdminPage() {
                         value={form.price}
                         onChange={(event) => setForm((prev) => ({ ...prev, price: event.target.value }))}
                         required
-                        />
-                      </label>
+                      />
+                    </label>
+                    <label>
+                      Potencia (CV)
+                      <input
+                        type="number"
+                        min="0"
+                        value={form.power}
+                        onChange={(event) => setForm((prev) => ({ ...prev, power: event.target.value }))}
+                        required
+                      />
+                    </label>
+                    <label>
+                      Etiqueta Medioambiental
+                      <select
+                        value={form.environmentalBadge}
+                        onChange={(event) => setForm((prev) => ({ ...prev, environmentalBadge: event.target.value }))}
+                      >
+                        {ENVIRONMENTAL_BADGE_OPTIONS.map(({ value, label }) => (
+                          <option key={value} value={value}>
+                            {label}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                    <label>
+                      Carrocería
+                      <input
+                        type="text"
+                        value={form.body}
+                        onChange={(event) => setForm((prev) => ({ ...prev, body: event.target.value }))}
+                        required
+                      />
+                    </label>
+                    <label>
+                      Color
+                      <input
+                        type="text"
+                        value={form.color}
+                        onChange={(event) => setForm((prev) => ({ ...prev, color: event.target.value }))}
+                        required
+                      />
+                    </label>
+                    <label>
+                      {"Cilindrada (cc)"}
+                      <input
+                        type="number"
+                        min="0"
+                        value={form.engineSize}
+                        onChange={(event) => setForm((prev) => ({ ...prev, engineSize: event.target.value }))}
+                        required
+                      />
+                    </label>
+                    <label>
+                      Número de Cilindros
+                      <input
+                        type="number"
+                        min="0"
+                        value={form.numCilinders}
+                        onChange={(event) => setForm((prev) => ({ ...prev, numCilinders: event.target.value }))}
+                        required
+                      />
+                    </label>
+                    <label>
+                      Marchas
+                      <input
+                        type="number"
+                        min="0"
+                        value={form.gears}
+                        onChange={(event) => setForm((prev) => ({ ...prev, gears: event.target.value }))}
+                        required
+                      />
+                    </label>
+                    <label>
+                      Plazas
+                      <input
+                        type="number"
+                        min="0"
+                        value={form.seats}
+                        onChange={(event) => setForm((prev) => ({ ...prev, seats: event.target.value }))}
+                        required
+                      />
+                    </label>
+                    <label>
+                      Puertas
+                      <input
+                        type="number"
+                        min="0"
+                        value={form.doors}
+                        onChange={(event) => setForm((prev) => ({ ...prev, doors: event.target.value }))}
+                        required
+                      />
+                    </label>
+                    <label>
+                      Normativa Emisiones
+                      <input
+                        type="text"
+                        value={form.euroStandard}
+                        onChange={(event) => setForm((prev) => ({ ...prev, euroStandard: event.target.value }))}
+                        placeholder={`p.e "EURO 5"`}
+                        required
+                      />
+                    </label>
 
                     <label>
                       URL de imagen
@@ -281,30 +407,7 @@ export default function AdminPage() {
                       />
                     </label>
 
-                    <label>
-                      Etiqueta (opcional)
-                      <input
-                        type="text"
-                        value={form.badge}
-                        onChange={(event) => setForm((prev) => ({ ...prev, badge: event.target.value }))}
-                        placeholder="Ej: Top ventas"
-                      />
-                    </label>
 
-                    <label>
-                      Color etiqueta
-                      <select
-                        value={form.badgeColor}
-                        onChange={(event) => setForm((prev) => ({ ...prev, badgeColor: event.target.value }))}
-                        disabled={!form.badge.trim()}
-                      >
-                        {BADGE_COLORS.map((color) => (
-                          <option key={color} value={color}>
-                            {color}
-                          </option>
-                        ))}
-                      </select>
-                    </label>
                   </div>
 
                   <label className="admin-checkbox">
