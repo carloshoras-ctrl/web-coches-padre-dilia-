@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
-import Footer from "../components/Footer/Footer";
-import Navbar from "../components/Navbar/Navbar";
 import { useAdminAuth } from "../context/AdminAuthContext";
 import { loginAdmin } from "../firebase/authService";
 import "./AdminPage.css";
@@ -38,7 +36,6 @@ export default function AdminLoginPage() {
 
   return (
     <>
-      <Navbar />
       <main className="admin-page">
         <section className="admin-shell">
           <header className="admin-shell__header">
@@ -86,7 +83,6 @@ export default function AdminLoginPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 }

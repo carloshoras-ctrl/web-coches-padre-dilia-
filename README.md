@@ -122,3 +122,4 @@ Cosas que faltan
 -Para el form quizas se puede hacer un .map tipo {label: Marca, key: marca, inputType: text/number, constants: ENVIRONMENTAL_BADGE tal} y en funcion de eso renderizamos un inputteext o select o lo que sea
 -Pasar proyecto a Typescript
 -en el display de consumo(L/100 km) falta montar lo de medio/ciudad/carretera
+-pasar de css a scss

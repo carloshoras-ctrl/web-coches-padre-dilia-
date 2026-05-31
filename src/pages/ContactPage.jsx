@@ -1,6 +1,4 @@
 ﻿import { useState } from "react";
-import Footer from "../components/Footer/Footer";
-import Navbar from "../components/Navbar/Navbar";
 import "./ContactPage.css";
 
 const EMPTY_FORM = {
@@ -34,8 +32,6 @@ export default function ContactPage() {
 
   return (
     <>
-      <Navbar />
-
       <main className="contact-page">
         <section className="contact-page__hero">
           <p className="section-tag">Atencion Personalizada</p>
@@ -139,8 +135,6 @@ export default function ContactPage() {
           </article>
         </section>
       </main>
-
-      <Footer />
     </>
   );
 }

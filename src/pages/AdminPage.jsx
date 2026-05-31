@@ -1,6 +1,4 @@
 import { useEffect, useMemo, useState } from "react";
-import Footer from "../components/Footer/Footer";
-import Navbar from "../components/Navbar/Navbar";
 import { useAdminAuth } from "../context/AdminAuthContext";
 import { logoutAdmin } from "../firebase/authService";
 import { addCar, deleteCar, getCars, updateCar } from "../firebase/carsService";
@@ -186,8 +184,6 @@ export default function AdminPage() {
 
   return (
     <>
-      <Navbar />
-
       <main className="admin-page">
         <section className="admin-shell">
           <header className="admin-shell__header">
@@ -488,8 +484,6 @@ export default function AdminPage() {
           </div>
         </section>
       </main>
-
-      <Footer />
     </>
   );
 }

@@ -1,7 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import Footer from "../../components/Footer/Footer";
-import Navbar from "../../components/Navbar/Navbar";
 import { getCarById } from "../../firebase/carsService";
 import "./CarDetailPage.css";
 import CarSpecifications from "./CarSpecifications/CarSpecifications";
@@ -300,8 +298,6 @@ export default function CarDetailPage() {
 
   return (
     <>
-      <Navbar />
-
       <main className="car-detail-page">
         <section className="car-detail-shell">
           <Link to="/catalogo" className="car-detail__back-link">
@@ -458,8 +454,6 @@ export default function CarDetailPage() {
           )}
         </section>
       </main>
-
-      <Footer />
     </>
   );
 }
