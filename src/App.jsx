@@ -1,11 +1,11 @@
 import { Outlet, Route, Routes } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import CatalogPage from "./pages/CatalogPage";
-import AdminPage from "./pages/AdminPage";
+import HomePage from "./pages/HomePage/HomePage";
+import CatalogPage from "./pages/CatalogPage/CatalogPage";
+import AdminPage from "./pages/admin/AdminPage";
 import AdminLoginPage from "./pages/AdminLoginPage";
-import ContactPage from "./pages/ContactPage";
+import ContactPage from "./pages/ContactPage/ContactPage";
 import CarDetailPage from "./pages/CarDetailPage/CarDetailPage";
-import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import PrivateRoute from "./router/PrivateRoute/PrivateRoute";
 import WhatsAppButton from "./components/WhatsappButton/WhatsappButton";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";

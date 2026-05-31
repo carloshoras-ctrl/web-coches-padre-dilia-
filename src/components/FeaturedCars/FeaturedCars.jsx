@@ -1,6 +1,6 @@
 ﻿import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { getCars, getFeaturedCars } from "../../firebase/carsService";
+import { getCars, getFeaturedCars } from "../../services/carsService";
 import CarCard from "../CarCard/CarCard";
 import "./FeaturedCars.css";
 

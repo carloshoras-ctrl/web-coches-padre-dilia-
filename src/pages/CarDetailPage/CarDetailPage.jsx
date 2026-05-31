@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getCarById } from "../../firebase/carsService";
+import { getCarById } from "../../services/carsService";
 import "./CarDetailPage.css";
 import CarSpecifications from "./CarSpecifications/CarSpecifications";
 import EnvironmentalBadge from "../../components/EnvironmentalBadge/EnvironmentalBadge";

@@ -1,4 +1,4 @@
-import FeaturedCars from "../components/FeaturedCars/FeaturedCars";
+import FeaturedCars from "../../components/FeaturedCars/FeaturedCars";
 
 export default function CatalogPage() {
   return (

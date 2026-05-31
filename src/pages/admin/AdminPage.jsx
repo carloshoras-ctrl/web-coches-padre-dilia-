@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
-import { useAdminAuth } from "../context/AdminAuthContext";
-import { logoutAdmin } from "../firebase/authService";
-import { addCar, deleteCar, getCars, updateCar } from "../firebase/carsService";
+import { useAdminAuth } from "../../context/AdminAuthContext";
+import { logoutAdmin } from "../../firebase/authService";
+import { addCar, deleteCar, getCars, updateCar } from "../../services/carsService";
 import "./AdminPage.css";
-import { ENVIRONMENTAL_BADGE_OPTIONS, TRANSMISSION_OPTIONS } from "../constants/formOptions";
+import { ENVIRONMENTAL_BADGE_OPTIONS, TRANSMISSION_OPTIONS } from "../../constants/formOptions";
 
 const FUEL_OPTIONS = ["Gasolina", "Diesel", "Hibrido", "Electrico"];
 const ETIQUETAS_MEDIOAMBIENTALES = ["0 Emisiones", "ECO", "C", "B", "Sin Etiqueta"];
