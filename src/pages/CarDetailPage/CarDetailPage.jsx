@@ -5,6 +5,7 @@ import "./CarDetailPage.css";
 import CarSpecifications from "./CarSpecifications/CarSpecifications";
 import EnvironmentalBadge from "../../components/EnvironmentalBadge/EnvironmentalBadge";
 import { FeatureIcon, InfoIcon, SpecIcon } from "../../components/ui/CarIcons";
+import { buildGalleryImages, getEcoLabel } from "../../utils/carHelpers";
 
 function formatPrice(value) {
   return Number(value || 0).toLocaleString("es-ES");
@@ -12,28 +13,6 @@ function formatPrice(value) {
 
 function formatKm(value) {
   return `${Number(value || 0).toLocaleString("es-ES")} km`;
-}
-
-function buildGalleryImages(car) {
-  if (!car) return [];
-
-  const rawImages = [
-    car.imageUrl,
-    ...(Array.isArray(car.galleryImages) ? car.galleryImages : []),
-    ...(Array.isArray(car.images) ? car.images : []),
-  ];
-
-  const filtered = rawImages.filter((image) => typeof image === "string" && image.trim() !== "");
-  return [...new Set(filtered)];
-}
-
-function getEcoLabel(car) {
-  if (car?.environmentalLabel) return String(car.environmentalLabel).toUpperCase();
-  if (car?.ecoLabel) return String(car.ecoLabel).toUpperCase();
-
-  const fuel = String(car?.fuel || "").toLowerCase();
-  if (fuel.includes("elect") || fuel.includes("hibri")) return "ECO";
-  return "C";
 }
 
 export default function CarDetailPage() {
@@ -98,38 +77,6 @@ export default function CarDetailPage() {
   function showNextImage() {
     setActiveImageIndex((prev) => (prev === imageList.length - 1 ? 0 : prev + 1));
   }
-
-  const keyFacts = [
-    { label: "Ano", value: car?.year || "-", icon: "year" },
-    { label: "Kilometros", value: formatKm(car?.km), icon: "km" },
-    { label: "Combustible", value: car?.fuel || "-", icon: "fuel" },
-    { label: "Transmision", value: transmission, icon: "transmission" },
-  ];
-
-  const detailCards = [
-    { label: "Año", value: car?.year || "-", icon: "year" },
-    { label: "Kilometros", value: formatKm(car?.km), icon: "km" },
-    { label: "Combustible", value: car?.fuel || "-", icon: "fuel" },
-    { label: "Transmision", value: transmission, icon: "transmission" },
-    { label: "Potencia", value: power === "-" ? "-" : `${power} CV`, icon: "power" },
-    { label: "Etiqueta ambiental", value: ecoLabel, icon: "eco", badge: true },
-  ];
-
-  const highlights = [
-    { title: "Garantia", subtitle: "12 meses incluida", icon: "warranty" },
-    { title: "Financiacion", subtitle: "A medida y sin compromiso", icon: "finance" },
-    { title: "Entrega", subtitle: "En toda Espana", icon: "delivery" },
-    { title: "Revision", subtitle: "Revisado y listo para entregar", icon: "revision" },
-  ];
-
-  const features = [
-    { title: "Climatizador automatico", subtitle: "Bi-zona", icon: "climate" },
-    { title: "Camara trasera", subtitle: "y sensores", icon: "camera" },
-    { title: "Pantalla tactil", subtitle: "con Apple CarPlay", icon: "display" },
-    { title: "Asientos calefactables", subtitle: "delanteros", icon: "seat" },
-    { title: "Control de crucero", subtitle: "adaptativo", icon: "cruise" },
-    { title: "Llantas de aleacion", subtitle: "16 pulgadas", icon: "wheels" },
-  ];
 
   const thumbsToShow = imageList.slice(0, 6);
   const hiddenThumbs = Math.max(imageList.length - thumbsToShow.length, 0);
