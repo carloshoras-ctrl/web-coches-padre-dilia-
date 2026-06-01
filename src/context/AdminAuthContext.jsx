@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
-import { onAdminAuthStateChanged } from "../firebase/authService";
+import { onAdminAuthStateChanged } from "../services/authService";
 
 const AdminAuthContext = createContext(null);
 

@@ -2,7 +2,7 @@ import { Outlet, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import CatalogPage from "./pages/CatalogPage/CatalogPage";
 import AdminPage from "./pages/admin/AdminPage";
-import AdminLoginPage from "./pages/AdminLoginPage";
+import AdminLoginPage from "./pages/admin/adminLoginPage/AdminLoginPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import CarDetailPage from "./pages/CarDetailPage/CarDetailPage";
 import PrivateRoute from "./router/PrivateRoute/PrivateRoute";

@@ -123,3 +123,4 @@ Cosas que faltan
 -Pasar proyecto a Typescript
 -en el display de consumo(L/100 km) falta montar lo de medio/ciudad/carretera
 -pasar de css a scss
+-añadir modelo de datos en firebase y conectar a la bbdd en CarDetailPage

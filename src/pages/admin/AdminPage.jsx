@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useAdminAuth } from "../../context/AdminAuthContext";
-import { logoutAdmin } from "../../firebase/authService";
+import { logoutAdmin } from "../../services/authService";
 import { addCar, deleteCar, getCars, updateCar } from "../../services/carsService";
 import "./AdminPage.css";
 import { ENVIRONMENTAL_BADGE_OPTIONS, TRANSMISSION_OPTIONS } from "../../constants/formOptions";

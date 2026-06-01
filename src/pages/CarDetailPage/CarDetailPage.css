@@ -614,6 +614,104 @@
   text-align: right;
 }
 
+.car-detail-tech-card__hint {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.car-detail-tech-card__car {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid #ececec;
+}
+
+.car-detail-tech-card__car strong {
+  display: block;
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.car-detail-tech-card__car span {
+  display: block;
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.car-detail-contact-form {
+  margin-top: 12px;
+}
+
+.car-detail-contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.car-detail-contact-form__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.car-detail-contact-form__full {
+  grid-column: 1 / -1;
+  margin-top: 12px;
+}
+
+.car-detail-contact-form input,
+.car-detail-contact-form textarea {
+  width: 100%;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 12px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--font);
+  outline: none;
+  background: #ffffff;
+}
+
+.car-detail-contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.car-detail-contact-form input:focus,
+.car-detail-contact-form textarea:focus {
+  border-color: rgba(244, 125, 32, 0.7);
+  box-shadow: 0 0 0 3px rgba(244, 125, 32, 0.12);
+}
+
+.car-detail-contact-form__feedback {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #166534;
+  font-weight: 700;
+}
+
+.car-detail-contact-form__submit {
+  margin-top: 12px;
+  width: 100%;
+  min-height: 48px;
+  border-radius: 10px;
+  background: var(--orange);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+  transition: background 0.2s;
+}
+
+.car-detail-contact-form__submit:hover {
+  background: var(--orange-dark);
+}
+
 @media (max-width: 1240px) {
   .car-detail-media-layout {
     grid-template-columns: 1fr;
@@ -690,6 +788,10 @@
   }
 
   .car-detail-tech-list {
+    grid-template-columns: 1fr;
+  }
+
+  .car-detail-contact-form__grid {
     grid-template-columns: 1fr;
   }
 }
