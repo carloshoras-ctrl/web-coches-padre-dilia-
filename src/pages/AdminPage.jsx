@@ -5,10 +5,8 @@ import { useAdminAuth } from "../context/AdminAuthContext";
 import { logoutAdmin } from "../firebase/authService";
 import { addCar, deleteCar, getCars, updateCar } from "../firebase/carsService";
 import "./AdminPage.css";
-import { ENVIRONMENTAL_BADGE_OPTIONS, TRANSMISSION_OPTIONS } from "../constants/formOptions";
-
-const FUEL_OPTIONS = ["Gasolina", "Diesel", "Hibrido", "Electrico"];
-const ETIQUETAS_MEDIOAMBIENTALES = ["0 Emisiones", "ECO", "C", "B", "Sin Etiqueta"];
+import { ENVIRONMENTAL_BADGE_OPTIONS, FUEL_OPTIONS, TRANSMISSION_OPTIONS } from "../constants/formOptions";
+import { formatPrice } from "../utils/formatters";
 
 const EMPTY_FORM = {
   brand: "",
@@ -19,22 +17,10 @@ const EMPTY_FORM = {
   price: "",
   imageUrl: "",
   badge: "",
-  environmentalBadge: ETIQUETAS_MEDIOAMBIENTALES[0],
+  environmentalBadge: ENVIRONMENTAL_BADGE_OPTIONS[0].value,
   featured: true,
 };
 
-
-const ENVIRONMENTAL_BADGE_MAP = {
-  "0 Emisiones": "zero",
-  "ECO": "eco",
-  "C": "c",
-  "B": "b",
-  "Sin Etiqueta": "none"
-};
-
-function formatPrice(value) {
-  return Number(value || 0).toLocaleString("es-ES");
-}
 
 export default function AdminPage() {
   const { adminUser } = useAdminAuth();
