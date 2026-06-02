@@ -127,23 +127,23 @@ Cosas que faltan
 
 
 Pasos hasta desplegar:
-1. Añadir campos al formulario (falta el textarea también)
-2. Página de "Nosotros"
+1. C - Añadir campos al formulario (falta el textarea también)
+2. D - Página de "Nosotros"
 3. Acabar página detalle individual coche 
----carrousel imagenes coche
----arreglar responsive
----cambiar estilos formulario contacto
----parte de especificaciones mismos tamaños y formato correcto
-4. Boton inicio "Ver coches disponibles" debe dirigir a catalogo
-5. Cambiar los gatos de formulario de contacto
-----Añadir funcionalidad de enviar consulta al mail del propietario del negosio
-6. Cambiar info del Pieses
-7. Quitar funcionalidad telefono Header y ponerlo en naranja o algo
-8. Falta Favicon (crear un iconito de una ruedecita :)
-9. Cambiar titulo de cada pagina segun el coche que visites (lo que aparece en la pestaña jeje uwu ;)
-10. Añadir cuentita de instagram abajo!!
-11. Recortar logo (ya está hecho)
-12. Mirar cómo desplegar en AWS
+C - ---carrousel imagenes coche
+C - ---arreglar responsive
+D - ---cambiar estilos formulario contacto
+C - ---parte de especificaciones mismos tamaños y formato correcto
+4. D - Boton inicio "Ver coches disponibles" debe dirigir a catalogo
+5. D - Cambiar los gatos de formulario de contacto
+D - ---Añadir funcionalidad de enviar consulta al mail del propietario del negosio
+6. C - Cambiar info del Pieses
+7. D - Quitar funcionalidad telefono Header y ponerlo en naranja o algo
+8. D - Falta Favicon (crear un iconito de una ruedecita :)
+9. C - Cambiar titulo de cada pagina segun el coche que visites (lo que aparece en la pestaña jeje uwu ;)
+10. C - Añadir cuentita de instagram abajo!!
+11. D - Recortar logo (ya está hecho)
+12. BALOO - Mirar cómo desplegar en AWS
 
 
 Post despliegue:
