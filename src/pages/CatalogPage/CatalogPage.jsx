@@ -1,11 +1,8 @@
-import Navbar from "../components/Navbar/Navbar";
-import FeaturedCars from "../components/FeaturedCars/FeaturedCars";
-import Footer from "../components/Footer/Footer";
+import FeaturedCars from "../../components/FeaturedCars/FeaturedCars";
 
 export default function CatalogPage() {
   return (
     <>
-      <Navbar />
       <FeaturedCars
         sectionId="catalogo"
         showHeaderLink={false}
@@ -17,7 +14,6 @@ export default function CatalogPage() {
         }
         subtitle="Todos los coches disponibles en AutoSelect"
       />
-      <Footer />
     </>
   );
 }

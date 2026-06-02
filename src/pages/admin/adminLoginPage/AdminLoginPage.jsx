@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
-import Footer from "../components/Footer/Footer";
-import Navbar from "../components/Navbar/Navbar";
-import { useAdminAuth } from "../context/AdminAuthContext";
-import { loginAdmin } from "../firebase/authService";
-import "./AdminPage.css";
+import { useAdminAuth } from "../../../context/AdminAuthContext";
+import { loginAdmin } from "../../../services/authService";
+import "../AdminPage.css";
 
 export default function AdminLoginPage() {
   const { isAuthenticated, authReady } = useAdminAuth();
@@ -38,7 +36,6 @@ export default function AdminLoginPage() {
 
   return (
     <>
-      <Navbar />
       <main className="admin-page">
         <section className="admin-shell">
           <header className="admin-shell__header">
@@ -76,9 +73,7 @@ export default function AdminLoginPage() {
                   required
                 />
               </label>
-
               {authError && <p className="admin-feedback admin-feedback--error">{authError}</p>}
-
               <button className="admin-btn" type="submit" disabled={loginLoading || !authReady}>
                 {loginLoading ? "Entrando..." : "Entrar"}
               </button>
@@ -86,7 +81,6 @@ export default function AdminLoginPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 }

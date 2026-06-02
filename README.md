@@ -59,7 +59,7 @@ Cada documento debe tener estos campos:
 | fuel        | string    | "Diésel"             |
 | price       | number    | 16900                |
 | badge       | string?   | "TOP VENTAS"         |
-| badgeColor  | string?   | "orange"             |
+| environmentalBadge  | string?   | "orange"             |
 | imageUrl    | string    | (Firebase Storage URL)|
 | featured    | boolean   | true                 |
 | createdAt   | timestamp | serverTimestamp()    |
@@ -92,25 +92,66 @@ useEffect(() => {
 
 
 Cosas que faltan
--Arreglar error CORS
--Añadir ruta protegida
--Sticky whatsapp
--Añadir el Logo
+~~-Arreglar error CORS~~
+~~-Añadir ruta protegida~~
+~~-Sticky whatsapp~~
+~~-Añadir el Logo~~
 -Pasar a Next.js
--Mirar tema responsive
+~~Mirar tema responsive~~
 -Cambiar contenido/descripciones... poner algo más legit
--Pagina de Contacto
+~~-Pagina de Contacto~~
 -Pagina de Nosotros
 -En "Publicar coche" la marca deberia ser un dropdown
--Añadir página individual de cada coche
--Quitar botón de favorito y "top ventas" y "eco"
+~~-Añadir página individual de cada coche~~
+~~-Quitar "top ventas" y "eco"~~
 (-Paginación de reviews)
--Conectar con bbdd Firebase
+~~-Conectar con bbdd Firebase~~
 -AWS (despliegue y bbdd)
 -Preguntar a tu padre cuánto paga su amigo por la web
 -Decir a tu padre que pida reseñas de wallapop
 -en la pantalla de catalogo hay que añadir esqueleto mientras cargan los coches
--etiqueta medioambiental en la imagen del coche arriba a la dercha
+~~-etiqueta medioambiental en la imagen del coche arriba a la dercha~~
 -mirar diseño de las cards
 -carrousel imagenes en cada card de coche
+-Añadir modal panel admin
+-refactorizar/revisar codigo porque los componentes dan SIDA (VIH)
 -preguntar IA como gestinoar cards de Reseñas (poner solo 4 en version movil +paginador?)
+-quitar frase del logo
+-Etiqueta medioambiental en pagina individual de coche
+-Hacer que se puedan subir imagenes del coche en lugar de solo url?
+-Para el form quizas se puede hacer un .map tipo {label: Marca, key: marca, inputType: text/number, constants: ENVIRONMENTAL_BADGE tal} y en funcion de eso renderizamos un inputteext o select o lo que sea
+-Pasar proyecto a Typescript
+-en el display de consumo(L/100 km) falta montar lo de medio/ciudad/carretera
+-pasar de css a scss
+-añadir modelo de datos en firebase y conectar a la bbdd en CarDetailPage
+
+
+Pasos hasta desplegar:
+1. Añadir campos al formulario (falta el textarea también)
+2. Página de "Nosotros"
+3. Acabar página detalle individual coche 
+---carrousel imagenes coche
+---arreglar responsive
+---cambiar estilos formulario contacto
+---parte de especificaciones mismos tamaños y formato correcto
+4. Boton inicio "Ver coches disponibles" debe dirigir a catalogo
+5. Cambiar los gatos de formulario de contacto
+----Añadir funcionalidad de enviar consulta al mail del propietario del negosio
+6. Cambiar info del Pieses
+7. Quitar funcionalidad telefono Header y ponerlo en naranja o algo
+8. Falta Favicon (crear un iconito de una ruedecita :)
+9. Cambiar titulo de cada pagina segun el coche que visites (lo que aparece en la pestaña jeje uwu ;)
+10. Añadir cuentita de instagram abajo!!
+11. Recortar logo (ya está hecho)
+12. Mirar cómo desplegar en AWS
+
+
+Post despliegue:
+1. Rediseño de la pagina de admin
+---añadir radiobutton/desplegable para "Vendido/Publicado/Sin Publicar"
+2. Mirar como usar BBDD en AWS
+---También autenticación
+---Tambien enviar mail al correo que toca del propietario
+3. Migrar a Next.js/Typescript/SCSS
+4. Mirar accesibilidad/SEO
+6. Chequear lista "cosas que faltan" más arriba

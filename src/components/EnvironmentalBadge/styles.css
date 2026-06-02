@@ -1,0 +1,11 @@
+.car-card__environmental_badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  width: 53px;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+}
+.car-card__environmental_badge img {
+  width: 100%;
+}/*# sourceMappingURL=styles.css.map */

@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useState } from "react";
+﻿import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { getCars, getFeaturedCars } from "../../firebase/carsService";
+import { getCars, getFeaturedCars } from "../../services/carsService";
 import CarCard from "../CarCard/CarCard";
 import "./FeaturedCars.css";
 
@@ -57,11 +57,6 @@ export default function FeaturedCars({
     };
   }, [featuredOnly]);
 
-  const toggleFavorite = (id) => {
-    setFavorites((prev) =>
-      prev.includes(id) ? prev.filter((favoriteId) => favoriteId !== id) : [...prev, id]
-    );
-  };
 
   const filteredCars = useMemo(() => {
     if (activeFilter === "Todos") return cars;
@@ -122,7 +117,6 @@ export default function FeaturedCars({
                 key={car.id}
                 car={car}
                 isFavorite={favorites.includes(car.id)}
-                onToggleFavorite={toggleFavorite}
               />
             ))}
           </div>
