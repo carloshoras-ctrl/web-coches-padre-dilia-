@@ -3,8 +3,8 @@ import { useAdminAuth } from "../../context/AdminAuthContext";
 import { logoutAdmin } from "../../services/authService";
 import { addCar, deleteCar, getCars, updateCar } from "../../services/carsService";
 import "./AdminPage.css";
-import { ENVIRONMENTAL_BADGE_OPTIONS, FUEL_OPTIONS, TRANSMISSION_OPTIONS } from "../constants/formOptions";
-import { formatPrice } from "../utils/formatters";
+import { ENVIRONMENTAL_BADGE_OPTIONS, FUEL_OPTIONS, TRANSMISSION_OPTIONS } from "../../constants/formOptions"
+import { formatPrice } from "../../utils/formatters";
 
 const EMPTY_FORM = {
   brand: "",

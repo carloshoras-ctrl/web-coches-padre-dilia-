@@ -124,3 +124,34 @@ Cosas que faltan
 -en el display de consumo(L/100 km) falta montar lo de medio/ciudad/carretera
 -pasar de css a scss
 -añadir modelo de datos en firebase y conectar a la bbdd en CarDetailPage
+
+
+Pasos hasta desplegar:
+1. Añadir campos al formulario (falta el textarea también)
+2. Página de "Nosotros"
+3. Acabar página detalle individual coche 
+---carrousel imagenes coche
+---arreglar responsive
+---cambiar estilos formulario contacto
+---parte de especificaciones mismos tamaños y formato correcto
+4. Boton inicio "Ver coches disponibles" debe dirigir a catalogo
+5. Cambiar los gatos de formulario de contacto
+----Añadir funcionalidad de enviar consulta al mail del propietario del negosio
+6. Cambiar info del Pieses
+7. Quitar funcionalidad telefono Header y ponerlo en naranja o algo
+8. Falta Favicon (crear un iconito de una ruedecita :)
+9. Cambiar titulo de cada pagina segun el coche que visites (lo que aparece en la pestaña jeje uwu ;)
+10. Añadir cuentita de instagram abajo!!
+11. Recortar logo (ya está hecho)
+12. Mirar cómo desplegar en AWS
+
+
+Post despliegue:
+1. Rediseño de la pagina de admin
+---añadir radiobutton/desplegable para "Vendido/Publicado/Sin Publicar"
+2. Mirar como usar BBDD en AWS
+---También autenticación
+---Tambien enviar mail al correo que toca del propietario
+3. Migrar a Next.js/Typescript/SCSS
+4. Mirar accesibilidad/SEO
+6. Chequear lista "cosas que faltan" más arriba
