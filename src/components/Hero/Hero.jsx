@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Hero.css";
 
 export default function Hero() {
@@ -13,12 +14,12 @@ export default function Hero() {
           <p className="hero__subtitle">
             Coches de segunda mano revisados, garantizados y al mejor precio.
           </p>
-          <a href="#coches" className="btn-primary hero__btn">
+          <Link to="/catalogo" className="btn-primary hero__btn">
             VER COCHES DISPONIBLES
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

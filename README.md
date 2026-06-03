@@ -127,18 +127,18 @@ Cosas que faltan
 
 
 Pasos hasta desplegar:
-1. C - Añadir campos al formulario (falta el textarea también)
+1.~~~~ C - Añadir campos al formulario (falta el textarea también)~~
 2. D - Página de "Nosotros"
 3. Acabar página detalle individual coche 
 C - ---carrousel imagenes coche
 C - ---arreglar responsive
 D - ---cambiar estilos formulario contacto
 C - ---parte de especificaciones mismos tamaños y formato correcto
-4. D - Boton inicio "Ver coches disponibles" debe dirigir a catalogo
+4.~~ D - Boton inicio "Ver coches disponibles" debe dirigir a catalogo~~
 5. D - Cambiar los gatos de formulario de contacto
 D - ---Añadir funcionalidad de enviar consulta al mail del propietario del negosio
 6. C - Cambiar info del Pieses
-7. D - Quitar funcionalidad telefono Header y ponerlo en naranja o algo
+7.~~ D - Quitar funcionalidad telefono Header y ponerlo en naranja o algo~~
 8. D - Falta Favicon (crear un iconito de una ruedecita :)
 9. C - Cambiar titulo de cada pagina segun el coche que visites (lo que aparece en la pestaña jeje uwu ;)
 10. C - Añadir cuentita de instagram abajo!!
