@@ -185,20 +185,7 @@ export default function CarDetailPage() {
                 </div>
 
               </section>
-
-              <article className="car-detail-contact-card car-detail-contact-card--full">
-                <div className="car-detail-contact-card__text">
-                  <h2>Te interesa este coche?</h2>
-                  <p>Contactanos y te asesoramos sin compromiso.</p>
-                </div>
-                <Link to="/contacto" className="car-detail-contact-card__btn">
-                  Contactar ahora
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M5 12h14" />
-                    <path d="M13 6l6 6-6 6" />
-                  </svg>
-                </Link>
-              </article>
+              
               <section className="car-detail-bottom">
                 <article className="car-detail-notes">
                   <h2>Descripcion del vehiculo</h2>
